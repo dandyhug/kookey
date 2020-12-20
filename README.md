@@ -9,12 +9,23 @@
 
 *문장으로 학습한 단어 임베딩 모델을 fine-tuning을 통해 의미 있는 동의어를 추출해내고자 했으나, 이는 실험적인 기능입니다. 이 기능을 업그레이드 할 수 있는 아이디어는 언제나 환영입니다.*
 
+## Install
+```
+pip install kookey
+```
+```
+import kookey
+kookey.__version__
+```
+
 ## Quick Start
 아래와 같은 방법으로 패키지를 이용해보실 수 있습니다. 더 자세한 기능은 test를 참고하십시오.
 
 ### Preprocessing
 - 실행
-``` python
+```{.python}
+from kookey.preprocess import Preprocess
+
 preprocess = Preprocess()
 result = preprocess.preprocess("안녕하세요. 반갑습니다. 성함이     어떻게 되세요?")
 ```
@@ -25,7 +36,7 @@ result = preprocess.preprocess("안녕하세요. 반갑습니다. 성함이     
 
 ### Extracting Keywords
 - 실행
-``` python
+```{.python}
 sentences = [
     "오늘은 약 10-12도 맑음이니까 날씨가 좋아요.",
     "복합명사를 추출할 수 있는데, 이런게 복합이죠!.",
@@ -39,6 +50,10 @@ keyword_extractor = KeywordExtractor(
     save_morphs=["NNG", "SL", "SN", "OL", "NR"]
 )
 
+from kookey.extract_keyword import KeywordExtractor
+
+keyword_extractor = KeywordExtractor(calculate_ppmi=True,
+    save_characters=["-"], save_morphs=["NNG", "SL", "SN", "OL", "NR"])
 keywords = keyword_extractor.get_keyword_candidate(sentences)
 ```
 - 결과
@@ -48,7 +63,7 @@ keywords = keyword_extractor.get_keyword_candidate(sentences)
 
 ### Extracting Synonym
 - 실행
-``` python
+```{.python}
 sentences = [
     "사과는 과일이다.", 
     "토마토는 과일이 아니다.", 
@@ -60,6 +75,8 @@ eval_data = [
 ]
 base_words = ["딸기"]
 compare_words = ["토마토", "사과"]
+
+from kookey.extract_synonym import SynonymExtractor
 
 synonym_extractor = SynonymExtractor(em_threshold=0)
 candidate = synonym_extractor.get_keyword_candidate(
@@ -73,11 +90,13 @@ candidate = synonym_extractor.get_keyword_candidate(
 [('딸기', '토마토', 0.652692), ('딸기', '사과', 0.652692)]
 ```
 - 실행
-``` python
+```{.python}
 train_data = [("사과", "딸기"), ("사과", "토마토")]
 train_label = [1, 0]
 test_data = [("딸기", "토마토")]
 test_label = [0]
+
+from kookey.extract_synonym import SynonymExtractor
 
 synonym_extractor = SynonymExtractor(tuning_mode=True, tune_threshold=0)
 candidate = synonym_extractor.get_keyword_candidate(
