@@ -8,6 +8,7 @@
 - 동의어 추출 : FastText pre-training, fine-tuning, 코사인 유사도
 
 *문장으로 학습한 단어 임베딩 모델을 fine-tuning을 통해 의미 있는 동의어를 추출해내고자 했으나, 이는 실험적인 기능입니다. 이 기능을 업그레이드 할 수 있는 아이디어는 언제나 환영입니다. -> [의견](https://github.com/HyeyeonKoo/kookey/issues)*
+*해당 패키지의 코드에는 이기창님께서 작성하신 [한국어임베딩 튜토리얼](https://github.com/ratsgo/embedding)의 자소분해 및 복원 코드가 포함되어 있으며, 해당 함수에 표기되어 있습니다.*
 
 ## Install
 ```
