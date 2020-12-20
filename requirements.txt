@@ -1,0 +1,6 @@
+gensim==3.8.3
+tensorflow>=2.0.0
+numpy>=1.12.1
+soynlp>=0.0.493
+nltk>=3.5
+konlpy>=0.5.2
