@@ -5,7 +5,7 @@
 - 공통 : 형태소 분석
 - 전처리 : 정규표현식, 문장 분리, 자카드 유사도
 - 키워드 추출 : N-gram, PPMI, 동시등장빈도
-- 동의어 추출 : FastText pre-training, fine-tuning, 코사인 유사도
+- 동의어 추출 : FastText pre-training, fine-tuning(pooling & cosine-loss / Bi-LSTM), 코사인 유사도
 
 *문장으로 학습한 단어 임베딩 모델을 fine-tuning을 통해 의미 있는 동의어를 추출해내고자 했으나, 이는 실험적인 기능입니다. 이 기능을 업그레이드 할 수 있는 아이디어는 언제나 환영입니다. -> [의견](https://github.com/HyeyeonKoo/kookey/issues)*
 
