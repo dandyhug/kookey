@@ -28,7 +28,7 @@ print("query:",query)
     
 # vector 값 읽기
 
-with open('C:\\100.삼성전자DUO프로젝트\\300. 개발_검색\\Vector_Data_0105\\example_json\\es_vector_value1.txt','r',encoding='utf-8') as f:
+with open('\\Vector_Data_0105\\example_json\\es_vector_value1.txt','r',encoding='utf-8') as f:
     json_data = json.load(f)
     query_vector = json_data['title_vector']
 
@@ -194,7 +194,7 @@ print(res['_source'])
 json_data = []
 count = 0
 
-with open('C:\\100.삼성전자DUO프로젝트\\300. 개발_검색\\Vector_Data_0105\\example_json\\es_sample_1000.json','r',encoding='UTF8') as data_file:
+with open('\Vector_Data_0105\\example_json\\es_sample_1000.json','r',encoding='UTF8') as data_file:
     json_data = json.load(data_file)
     
     for i, vectorlist in enumerate(json_data["vector_data"]):
