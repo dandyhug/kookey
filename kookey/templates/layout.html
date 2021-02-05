@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-widthm inital-cal=1" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/noscript.css')}}" />
+    <title>Duo Bert HOME</title>
+  </head>
+ 
+  <body class="is-preload">
+  
+    
+<!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" >
+
+        <a href="{{ url_for('index') }}" class="logo">
+          <img src="{{url_for('static', filename='images/du_bert_w.png')}}" alt="DuBERT" height="20"/>
+          <span> </span>
+        </a>
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+
+      <!-- Menu -->
+        <nav id="menu">
+          <ul class="actions stacked">
+            <li><a href="{{ url_for('search') }}" class="button primary fit">검색하기</a></li>
+          </ul>          
+          <ul class="links">
+              <li><a href="{{ url_for('about') }}" class="button fit">About</a></li>
+          </ul>
+
+        </nav>
+    </header>
+
+    <!-- Main content block -->
+    <!-- Main -->
+      <div id="main">
+        <section id="main" class="wrapper">
+          <div class="container">
+            <header class="major special">
+              <h2>{% block title %}{% endblock %}</h2>
+              <p>{% block desc %}{% endblock %}</p>
+            </header>
+            {% block content %}{% endblock %}
+          </div>
+        </section>
+      </div>
+
+
+    <footer id="footer">
+      <div align="center">
+        <ul  class="copyright" >
+                <span class="image">
+                  <a href="http://duoportal.paas.cloud.samsungds.net/duo/main.do?startMode=Y" target="duoportal" class="logo">
+                  <img src="{{url_for('static', filename='images/duo_logo.png')}}" alt="Duo" height="40"/>
+                  </a>
+                  &copy; powered by Kim, modeled by Koo, logo by Son, planning by Lee</li>
+                </span>
+        </ul>
+
+    </footer>
+
+  </div>
+
+		<!-- Scripts -->
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.scrolly.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.scrollex.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/browser.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/breakpoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/util.js')}}"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+  </body>
+</html>

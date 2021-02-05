@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+ 
+{% block title%} Welcome to Duo Bert {%endblock%}
+{% block content %}
+
+<!-- One -->
+<section id="one" class="tiles">
+  <article>
+    <span class="image">
+      <img src="images/pic01.jpg" alt="" />
+    </span>
+    <header class="major">
+      <h3>
+        <a href="{{ url_for('search') }}" class="link">
+        <img src="{{url_for('static', filename='images/du_bert_b.png')}}" alt="DuBERT" height="40"/>
+        </a>
+      </h3>
+      <p> 수십만건의 SVOC중에서 검색 문장과 유사한 문서를 찾아줍니다. </p>
+    </header>
+  </article>
+  <article>
+    <span class="image">
+      <img src="images/pic02.jpg" alt="" />
+    </span>
+    <header class="major">
+      <h3><a href="{{ url_for('about') }}" class="link">About</a></h3>
+      <p>우리는 이렇게 태어났어요~</p>
+    </header>
+  </article>
+  <article>
+    <span class="image">
+      <img src="images/pic03.jpg" alt="" />
+    </span>
+    <header class="major">
+      <h3><a href="http://duoportal.paas.cloud.samsungds.net/duo/main.do?startMode=Y" target="duo" class="link">Duo(운영)</a></h3>
+      <p>운영 duo portal 입니다</p>
+    </header>
+  </article>
+  <article>
+    <span class="image">
+      <img src="images/pic04.jpg" alt="" />
+    </span>
+    <header class="major">
+      <h3><a href="http://duoportal.devpaas.cloud.samsungds.net/duo/main.do?startMode=Y" target="duoDev"  class="link">Duo(개발)</a></h3>
+      <p>개발 duoportal 입니다.</p>
+    </header>
+  </article>
+  
+</section>
+
+<!-- Two -->
+<section id="two">
+  <div class="inner">
+    <ul class="actions">
+      <li><a href="{{ url_for('search') }}" class="button next">Get Started</a></li>
+    </ul>
+  </div>
+</section>
+
+{% endblock %}

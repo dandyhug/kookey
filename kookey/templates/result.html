@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+ 
+{% block content %}
+<div align="center">
+  <div class="content" align="center">
+    <p>※ 검색 문장에 대한 임베딩(Vector)값 inference Server 없이 테스트하는 것이라 검색 결과가 실제 운영될 유사제목 리스트와는 다릅니다.
+      <br> (POC는 유사도 1.0에 해당하는 문서 제목의 벡터값으로 유사도를 조회한 결과입니다.)
+      <br> 운영 프로세스 : 검색문장 ▶ <b>Inference Server(POC에서는 생략됨) </b> ▶ ES 서버 ▶ 검색 결과 
+    </p>
+</div>
+<article>
+  <p class="header h1"><font size=5><b>검색문장 : {% print(searchText) %}</b></font></p>
+  <table border="1">
+  <ul>
+    <tr class="header" align="center" >
+      <td width="10%">Rank</td>
+      <td width="25%">Score(유사도)</td>
+      <td width="65%">Title(유사제목)</td>
+    </tr>
+    {% for item in result_list %}
+    <tr align="center" >
+     {% if (item["score"]-1)|float >= 0.85 %}
+          <td width="10%"><b>{%print("{:2d}".format(item["rank"]))%}</b></td>
+          <td width="25%"><font color="red">{%print("{:10f}".format(item["score"]-1))%}</font></td>
+          <td width="*" align="left">{%print(item["title"])%}</td>
+ 
+      {% else%}
+          <td width="10%">{%print("{:2d}".format(item["rank"]))%}</td>
+          <td width="25%">{%print("{:10f}".format(item["score"]-1))%}</td>
+          <td width="*" align="left">{%print(item["title"])%}</td>
+      {% endif %}
+    </tr>  
+    {% endfor%}
+  </ul>
+  </table>
+</article>
+</div>
+
+  {% endblock %}

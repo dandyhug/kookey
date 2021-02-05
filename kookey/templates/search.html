@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{%with messages = get_flashed_messages()%}
+{%if messages %}
+  <script type="text/javascript">
+    alert("{{messages[-1]}}");
+  </script>
+  {%endif%}
+{%endwith%}
+
+{% block title%} DUBERT 유사문장 검색 {%endblock%}
+{% block desc%}  SVOC 18만건 대상 {%endblock%} 
+{% block content %}
+<div class="container">
+    <form action = "/result" method="post">
+      {% if searchResult != "N" %}
+      <p>검색문장 <input type="text" name="searchText" placeholder="검색어 또는 검색할 문장을 입력하세요." size="100"></p>
+      {% else %}
+      <p>검색문장 <input type="text" name="searchText" placeholder="{% print(searchText) %} 검색결과가 없습니다." size="100"></p>
+      {% endif %}
+      <p>조회건수 <input type="text" name="searchSize" placeholder="20" size="5" value="20"> </p>
+      <p><input type="submit" value="DuBERT 검색하기" class="button next"></p>
+    </form>
+</div>
+{% endblock %}
